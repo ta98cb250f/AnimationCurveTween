@@ -124,9 +124,8 @@ public static class TweenUtility {
 	/// </summary>
 	/// <param name="tweens">対象のTween配列</param>
 	/// <param name="group">グループ名</param>
-	/// <param name="reverse">逆再生するか</param>
 	/// <returns>指定のうち、どれか一つが再生中ならtrue</returns>
-	public static bool IsPlaying( this TweenBase[] tweens, string group = "", bool reverse = false ) {
+	public static bool IsPlaying( this TweenBase[] tweens, string group = "" ) {
 
 		if( string.IsNullOrEmpty( group ) ) {
 			foreach( var t in tweens ) {
