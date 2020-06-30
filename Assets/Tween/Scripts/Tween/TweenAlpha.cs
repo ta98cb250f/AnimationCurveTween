@@ -32,6 +32,45 @@ public class TweenAlpha : TweenBase {
 	float _to = 1.0f;
 
 	/// <summary>
+	/// 初期化時に初期パラメータをセット
+	/// </summary>
+	private void Reset() {
+		CanvasGroup canvs_group = GetComponent<CanvasGroup>();
+		if( canvs_group ) {
+			_from = canvs_group.alpha;
+			_to = _from;
+			return;
+		}
+
+		Image image = GetComponent<Image>();
+		if( image ) {
+			_from = image.color.a;
+			_to = _from;
+			return;
+		}
+
+		Text text = GetComponent<Text>();
+		if( text ) {
+			_from = text.color.a;
+			_to = _from;
+			return;
+		}
+
+		TMPro.TextMeshProUGUI tmp = GetComponent<TMPro.TextMeshProUGUI>();
+		if( tmp ) {
+			_from = tmp.color.a;
+			_to = _from;
+			return;
+		}
+		SpriteRenderer sprite_renderer = GetComponent<SpriteRenderer>();
+		if( sprite_renderer ) {
+			_from = sprite_renderer.color.a;
+			_to = _from;
+			return;
+		}
+	}
+
+	/// <summary>
 	/// 値の更新
 	/// </summary>
 	/// <param name="v">カーブからサンプリングした0−1で正規化された値</param>

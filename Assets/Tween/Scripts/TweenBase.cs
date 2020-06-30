@@ -6,7 +6,6 @@
 /// @file TweenBase.cs
 /// </summary>
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
 /// <summary>
@@ -47,7 +46,7 @@ public abstract class TweenBase : MonoBehaviour {
 	/// カーブ
 	/// </summary>
 	[SerializeField]
-	AnimationCurve _curve = new AnimationCurve();
+	AnimationCurve _curve = new AnimationCurve( new Keyframe( 0f, 0f ), new Keyframe( 1f, 1f ) );
 	/// <summary>
 	/// 再生を待つ時間
 	/// </summary>
@@ -226,19 +225,30 @@ public abstract class TweenBase : MonoBehaviour {
 	/// <param name="pause">同時にポーズするならtrue</param>
 	public void Reset( bool reverse = false, bool pause = false ) {
 
+		if( _delay < 0.0f ) {
+#if DEBUG
+			Debug.LogError( $"Tween:Reset() delay is less than zero ( = {_delay:0.00} )", this );
+#endif
+			_delay = 0.0f;
+		}
+		_delay_time = 0.0f;
+
 		if( _duration <= 0.0f ) {
 #if DEBUG
-			Debug.LogError( $"Tween:Update() duraion is under zero ( = {_duration:0.00} )", this );
+			Debug.LogError( $"Tween:Reset() duraion is under zero ( = {_duration:0.00} )", this );
 #endif
 			_duration = 1.0f;
 		}
+
 		_is_reverse = reverse;
 		if( _is_reverse ) {
 			_time = _duration;
 		} else {
 			_time = 0.0f;
 		}
+
 		_EvaluateValue( _time / _duration );
+
 		if( pause ) {
 			enabled = false;
 		}

@@ -25,6 +25,21 @@ public class TweenPosition : TweenBase {
 	Vector3 _to = new Vector3();
 
 	/// <summary>
+	/// 初期化時に初期パラメータをセット
+	/// </summary>
+	private void Reset() {
+		RectTransform rect = GetComponent<RectTransform>();
+		if( rect ) {
+			_from = rect.anchoredPosition;
+			_to = _from;
+			return;
+		}
+
+		_from = transform.localPosition;
+		_to = _from;
+	}
+
+	/// <summary>
 	/// 値の更新
 	/// </summary>
 	/// <param name="v">カーブからサンプリングした0−1で正規化された値</param>

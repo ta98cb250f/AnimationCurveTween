@@ -10,7 +10,7 @@ using UnityEngine;
 /// <summary>
 /// スケールのTween
 /// </summary>
-public class TweenScale : TweenBase {
+public class TweenScale : TweenBase  {
 
 	//! ターゲットにするRectTransform
 	RectTransform _rect_transform = null;
@@ -23,6 +23,21 @@ public class TweenScale : TweenBase {
 	//! 最後の位置
 	[SerializeField]
 	Vector3 _to = new Vector3();
+
+	/// <summary>
+	/// 初期化時に初期パラメータをセット
+	/// </summary>
+	private void Reset() {
+		RectTransform rect = GetComponent<RectTransform>();
+		if( rect ) {
+			_from = rect.localScale;
+			_to = _from;
+			return;
+		}
+
+		_from = transform.localScale;
+		_to = _from;
+	}
 
 	/// <summary>
 	/// 値の更新
