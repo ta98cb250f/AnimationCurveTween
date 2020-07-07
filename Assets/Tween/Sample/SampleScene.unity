@@ -604,8 +604,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0.2
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -630,8 +634,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0.2
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
@@ -650,8 +652,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0.2
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -676,13 +682,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0.2
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
   _from: {x: 300, y: -120, z: 0}
   _to: {x: 150, y: -120, z: 0}
+  _option: 0
 --- !u!114 &974380520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,8 +850,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -871,13 +880,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
   _from: {x: 0, y: 0, z: 0}
   _to: {x: 1, y: 1, z: 1}
+  _option: 0
 --- !u!225 &1049732486
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1009,8 +1017,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1035,8 +1047,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls:
@@ -1051,8 +1061,9 @@ MonoBehaviour:
           m_StringArgument: after_open
           m_BoolArgument: 1
         m_CallState: 2
-  _from: {x: 0, y: -100, z: 0}
+  _from: {x: 0, y: -500, z: 0}
   _to: {x: 0, y: 0, z: 0}
+  _option: 0
 --- !u!114 &1049732492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,8 +1077,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: close
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1092,8 +1107,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls:
@@ -1132,6 +1145,7 @@ MonoBehaviour:
         m_CallState: 2
   _from: {x: 1, y: 1, z: 1}
   _to: {x: 0, y: 0, z: 0}
+  _option: 0
 --- !u!114 &1049732494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,8 +1440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0.4
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1452,8 +1470,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0.4
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls:
@@ -1483,8 +1499,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0.4
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1509,13 +1529,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0.4
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
   _from: {x: 300, y: -200, z: 0}
   _to: {x: 150, y: -200, z: 0}
+  _option: 0
 --- !u!114 &1549207954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,8 +1937,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1944,8 +1967,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
@@ -1964,8 +1985,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _group_name: after_open
-  type: 0
+  _type: 0
   _is_reverse: 0
+  _is_ignore_timescale: 0
+  _is_fixedtime: 0
+  _delay: 0
+  _duration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1990,13 +2015,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _delay: 0
-  _duration: 0.5
   _on_finished:
     m_PersistentCalls:
       m_Calls: []
   _from: {x: 300, y: -40, z: 0}
   _to: {x: 150, y: -40, z: 0}
+  _option: 0
 --- !u!114 &1947364450
 MonoBehaviour:
   m_ObjectHideFlags: 0
