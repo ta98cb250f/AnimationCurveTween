@@ -23,6 +23,9 @@ public class TweenPosition : TweenBase {
 	//! 最後の位置
 	[SerializeField]
 	Vector3 _to = new Vector3();
+	//! 条件フラグ
+	[SerializeField]
+	eVectorConstraints _option = 0;
 
 	/// <summary>
 	/// 初期化時に初期パラメータをセット
@@ -50,13 +53,31 @@ public class TweenPosition : TweenBase {
 			_transform = GetComponent<Transform>();
 		}
 
-		Vector3 value = _from * ( 1.0f - v ) + _to * v;
+
+		Vector3 value;
 		if( _rect_transform ) {
-			_rect_transform.anchoredPosition = new Vector2( value.x, value.y );
+			value = _rect_transform.anchoredPosition;
 		} else if( _transform ) {
-			_transform.localPosition = value;
+			value = _transform.localPosition;
 		} else {
 			enabled = false;
+			return;
+		}
+
+		if( !_option.HasFlag( eVectorConstraints.Lock_X ) ) {
+			value.x = _from.x * ( 1.0f - v ) + _to.x * v;
+		}
+		if( !_option.HasFlag( eVectorConstraints.Lock_Y ) ) {
+			value.y = _from.y * ( 1.0f - v ) + _to.y * v;
+		}
+		if( !_option.HasFlag( eVectorConstraints.Lock_Z ) ) {
+			value.z = _from.z * ( 1.0f - v ) + _to.z * v;
+		}
+
+		if( _rect_transform ) {
+			_rect_transform.anchoredPosition = value;
+		} else if( _transform ) {
+			_transform.localPosition = value;
 		}
 	}
 
