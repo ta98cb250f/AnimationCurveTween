@@ -63,7 +63,6 @@ public class TweenScale : TweenBase  {
 			return;
 		}
 
-		Debug.Log( $"{groupName}  {_option}" );
 		if( !_option.HasFlag( eVectorConstraints.Lock_X ) ) {
 			value.x = _from.x * ( 1.0f - v ) + _to.x * v;
 		}
