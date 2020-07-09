@@ -63,13 +63,13 @@ public class TweenRotation : TweenBase  {
 			return;
 		}
 
-		if( !_option.HasFlag( eVectorConstraints.Lock_X ) ) {
+		if( !_option.HasFlag( eVectorConstraints.Ignore_X ) ) {
 			value.x = _from.x * ( 1.0f - v ) + _to.x * v;
 		}
-		if( !_option.HasFlag( eVectorConstraints.Lock_Y ) ) {
+		if( !_option.HasFlag( eVectorConstraints.Ignore_Y ) ) {
 			value.y = _from.y * ( 1.0f - v ) + _to.y * v;
 		}
-		if( !_option.HasFlag( eVectorConstraints.Lock_Z ) ) {
+		if( !_option.HasFlag( eVectorConstraints.Ignore_Z ) ) {
 			value.z = _from.z * ( 1.0f - v ) + _to.z * v;
 		}
 

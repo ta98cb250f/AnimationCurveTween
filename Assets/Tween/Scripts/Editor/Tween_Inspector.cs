@@ -125,8 +125,10 @@ public class Tween_Inspector : Editor {
 
 		// 実行中のみテスト機能を有効化
 		if( Application.isPlaying ) {
-			GUILayout.BeginHorizontal();
-				if( GUILayout.Button( "Replay", GUILayout.Width( 50 ) ) ) {
+			GUILayout.Box( "", GUILayout.ExpandWidth( true ), GUILayout.Height( 2 ) );
+			{
+				GUILayout.BeginHorizontal();
+				if( GUILayout.Button( "Replay", GUILayout.Width( 80 ) ) ) {
 					TweenBase tween = target as TweenBase;
 					if( _is_test_with_child ) {
 						TweenBase[] tweens = tween.transform.GetTweens( _test_groupname );
@@ -139,7 +141,8 @@ public class Tween_Inspector : Editor {
 				GUI.enabled = _is_test_with_child;
 				_test_groupname = GUILayout.TextField( _test_groupname );
 				GUI.enabled = true;
-			GUILayout.EndHorizontal();
+				GUILayout.EndHorizontal();
+			}
 		}
 	}
 
@@ -153,7 +156,7 @@ public class Tween_Inspector : Editor {
 
 		property.boolValue = EditorGUILayout.ToggleLeft(
 			new GUIContent( property.displayName.Replace( "_", " " ), tooltip ),
-			_is_reverse.boolValue,
+			property.boolValue,
 			options
 		);
 	}

@@ -27,10 +27,10 @@ public abstract class TweenBase : MonoBehaviour {
 	/// </summary>
 	[System.Flags]
 	public enum eVectorConstraints {
-		Lock_X = 1 << 0, //!< Xを変更しない
-		Lock_Y = 1 << 1, //!< Yを変更しない
-		Lock_Z = 1 << 2, //!< Zを変更しない
-		Lock_W = 1 << 3, //!< Wを変更しない
+		Ignore_X = 1 << 0, //!< Xを変更しない
+		Ignore_Y = 1 << 1, //!< Yを変更しない
+		Ignore_Z = 1 << 2, //!< Zを変更しない
+		Ignore_W = 1 << 3, //!< Wを変更しない
 	};
 
 	/// <summary>
@@ -38,10 +38,10 @@ public abstract class TweenBase : MonoBehaviour {
 	/// </summary>
 	[System.Flags]
 	public enum eColorConstraints {
-		Lock_R = 1 << 0, //!< Rを変更しない
-		Lock_G = 1 << 1, //!< Gを変更しない
-		Lock_B = 1 << 2, //!< Bを変更しない
-		Lock_A = 1 << 2, //!< Aを変更しない
+		Ignore_R = 1 << 0, //!< Rを変更しない
+		Ignore_G = 1 << 1, //!< Gを変更しない
+		Ignore_B = 1 << 2, //!< Bを変更しない
+		Ignore_A = 1 << 2, //!< Aを変更しない
 	};
 
 	/// <summary>
