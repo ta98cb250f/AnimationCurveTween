@@ -34,6 +34,28 @@ public class TweenGroupController : MonoBehaviour {
 	/// </summary>
 	private void Reset() {
 		_transform = transform;
+
+#if UNITY_EDITOR
+		// Tweenより上に配置する
+		Component[] components = GetComponents<Component>();
+		for( int current_index = components.Length - 1; current_index > 0; --current_index ) {
+			Component current_component = components[current_index];
+			if( current_component != this ) {
+				continue;
+			}
+
+			for( int up_index = current_index - 1; up_index >= 0 ; --up_index) {
+				Component up_component = components[up_index];
+				TweenBase tween = up_component as TweenBase;
+				if( tween ) {
+					for( ; up_index < current_index; --current_index ) {
+						UnityEditorInternal.ComponentUtility.MoveComponentUp( this );
+					}
+				}
+			}
+			break;
+		}
+#endif
 	}
 
 	/// <summary>
