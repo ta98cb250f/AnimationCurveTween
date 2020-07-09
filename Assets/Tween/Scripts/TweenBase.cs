@@ -63,7 +63,7 @@ public abstract class TweenBase : MonoBehaviour {
 	/// タイムスケールを無視するならtrue
 	/// </summary>
 	[SerializeField, Tooltip( "タイムスケールを無視するならtrue" )]
-	bool _is_ignore_timescale = false;
+	protected bool _is_ignore_timescale = false;
 	/// <summary>
 	/// FixedUpdateで動作するならtrue
 	/// </summary>
