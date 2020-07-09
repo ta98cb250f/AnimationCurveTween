@@ -50,7 +50,7 @@ public class Tween_Inspector : Editor {
 	/// <summary>
 	/// インスペクタ有効化時にプロパティを取得
 	/// </summary>
-	private void OnEnable() {
+	protected virtual void OnEnable() {
 
 		_group_name = serializedObject.FindProperty( "_group_name" );
 		_type = serializedObject.FindProperty( "_type" );
