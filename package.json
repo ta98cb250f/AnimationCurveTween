@@ -1,0 +1,15 @@
+{
+    "name": "com.yoshino.tween",
+    "displayName": "UGUI Tween",
+    "description": "Tweens for UGUI, tweening by AnimationCurve in Inspector.",
+    "version": "0.1.0",
+    "unity": "2019.3",
+    "samples": [
+      {
+        "displayName": "Sample",
+        "description": "Sample scenes.",
+        "path": "Samples~"
+      }
+    ]
+
+}
