@@ -7,6 +7,9 @@
 /// </summary>
 using System.Collections;
 using UnityEngine;
+#if UNITASK
+using Cysharp.Threading.Tasks;
+#endif
 
 namespace UGUITween {
 
@@ -178,5 +181,40 @@ namespace UGUITween {
 				yield return null;
 			}
 		}
+
+#if UNITASK
+		/// <summary>
+		/// 再生して再生中を待つ
+		/// グループ名の指定、逆再生を指定する
+		/// UniTaskで使用する場合、asmdefにUniTaskを追加して使用する
+		/// </summary>
+		/// <param name="tweens">対象のTween配列</param>
+		/// <param name="group">グループ名</param>
+		/// <param name="reverse">逆再生するか</param>
+		public static async UniTask PlayWhileAsync( this TweenBase[] tweens, string group = "", bool reverse = false ) {
+
+			TweenBase[] targets = tweens;
+			if( !string.IsNullOrEmpty( group ) ) {
+				targets = System.Array.FindAll( targets, t => t.groupName == group );
+			}
+
+			foreach( var t in targets ) {
+				t.Play( reverse );
+			}
+			while( true ) {
+				bool hit = false;
+				foreach( var t in targets ) {
+					if( t.enabled ) {
+						hit = true;
+						break;
+					}
+				}
+				if( !hit ) {
+					break;
+				}
+				await UniTask.Yield();
+			}
+		}
+#endif
 	}
 }

@@ -2,7 +2,8 @@
     "name": "UGUITween",
     "references": [
         "UnityEngine.UI",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
