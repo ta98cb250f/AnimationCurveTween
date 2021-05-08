@@ -74,15 +74,18 @@ namespace UGUITween.Editor {
 		/// </summary>
 		public override void OnInspectorGUI() {
 
-			//base.OnInspectorGUI();
+			EditorGUI.BeginDisabledGroup( true );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "m_Script" ) );
+			EditorGUI.EndDisabledGroup();
 
 			serializedObject.Update();
+			EditorGUILayout.BeginVertical( GUI.skin.box );
 			{
 				EditorGUIUtility.labelWidth = 80;
 
 				EditorGUILayout.PropertyField( _group_name, new GUIContent( _group_name.displayName.Replace( "_", " " ) ) );
 
-				GUILayout.Box( "", GUILayout.ExpandWidth( true ), GUILayout.Height( 2 ) );
+				DrawLine( Color.black );
 
 				{
 					EditorGUILayout.BeginHorizontal();
@@ -106,7 +109,7 @@ namespace UGUITween.Editor {
 					EditorGUILayout.EndHorizontal();
 				}
 
-				GUILayout.Box( "", GUILayout.ExpandWidth( true ), GUILayout.Height( 2 ) );
+				DrawLine( Color.black );
 
 				{
 					if( _from != null ) {
@@ -123,11 +126,12 @@ namespace UGUITween.Editor {
 				EditorGUILayout.PropertyField( _curve, GUILayout.Height( 50 ) );
 				EditorGUILayout.PropertyField( _on_finished, new GUIContent( _on_finished.displayName.Replace( "_", " " ) ) );
 			}
+			EditorGUILayout.EndVertical();
 			serializedObject.ApplyModifiedProperties();
 
 			// 実行中のみテスト機能を有効化
 			if( Application.isPlaying ) {
-				GUILayout.Box( "", GUILayout.ExpandWidth( true ), GUILayout.Height( 2 ) );
+				DrawLine( Color.black );
 				{
 					GUILayout.BeginHorizontal();
 					if( GUILayout.Button( "Replay", GUILayout.Width( 80 ) ) ) {
@@ -146,6 +150,20 @@ namespace UGUITween.Editor {
 					GUILayout.EndHorizontal();
 				}
 			}
+		}
+
+		/// <summary>
+		/// インスペクタ上に横ラインを引く
+		/// </summary>
+		/// <param name="lineColor">色の指定があれば設置する</param>
+		void DrawLine( Color? lineColor = null ) {
+
+			var originalColor = GUI.color;
+			if( lineColor != null ) {
+				GUI.color = (Color)lineColor;
+			}
+			GUILayout.Box( "", GUILayout.ExpandWidth( true ), GUILayout.Height( 2 ) );
+			GUI.color = originalColor;
 		}
 
 		/// <summary>
